@@ -31,6 +31,7 @@ CREATE TABLE Prod_Linking_Cat (
   FOREIGN KEY (id_category) REFERENCES Categories(id)
 );
 ```
+____
 ## *Теперь,когда все таблицы созданы, можно писать сам запрос*
 **В запросе делаем выборку наименований продуктов и наименований категорий из таблицы продуктов,связанной с таблицей категорий через связующую таблицу. Благодаря LEFT JOIN , даже если в связующей таблице не будут найдены продукты с соответствующим id, продукт все равно будет добавлен в итоговую таблицу. Также, это значит,что даже если у продукта не будет категории в связующей таблице, то вместо категории будет по стандарту выведен "NULL".**
 ```SQL
@@ -38,3 +39,4 @@ SELECT Products.Naming as "Продукт", Categories.Naming as "Категор
 LEFT JOIN Prod_Linking_Cat ON Products.id = Prod_Linking_Cat.id_product
 LEFT JOIN Categories ON Categories.id = Prod_Linking_Cat.id_category
 ```
+____
