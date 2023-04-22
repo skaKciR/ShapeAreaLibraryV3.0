@@ -9,10 +9,10 @@ namespace Tests
 {
     public class TriangleTests
     {
-        // Accuracy
+        // Погрешность
         double accuracy = 0.01;
 
-        // Positive TriangleTests
+        // Положительные тесты
         [TestCase(3, 4, 5, 6)]
         [TestCase(19, 12, 12, 69.64867191842211)]
         [TestCase(5, 5, 6, 12)]
@@ -29,7 +29,7 @@ namespace Tests
             Assert.AreEqual(figure.FigureType, "Triangle");
         }
 
-        // Negative Triangle Tests
+        // Отрицательные тесты
         [TestCase(5, 2, 7)]
         [TestCase(14, 2, 8)]
         [TestCase(2, 14, 8)]
@@ -48,7 +48,7 @@ namespace Tests
             Assert.Throws<ArgumentException>(() => new Triangle(a, b, c));
         }
 
-        // Checking if Triangle is Right
+        // Проверка, является ли треугольник прямоугольным
         [TestCase(5, 4, 3, true)]
         [TestCase(3, 4, 5, true)]
         [TestCase(5, 12, 13, true)]
@@ -61,7 +61,7 @@ namespace Tests
             Assert.AreEqual(((Triangle)figure).IsRight, exp);
         }
 
-        // Checking if Triangle isn't Right
+        // Проверка,треугольник не является  прямоугольным
         [TestCase(6, 4, 3, false)]
         [TestCase(4, 5, 8, false)]
         [TestCase(4, 7, 5, false)]

@@ -9,10 +9,10 @@ namespace Tests
 {
     public class RectangleTests
     {
-        // Accuracy
+        // Погрешность
         double accuracy = 0.01;
 
-        // Positive Rectangle Tests
+        // Положительные тесты
         [TestCase(5, 5, 25)]
         [TestCase(5.5, 5.5, 30.25)]
         [TestCase(1, 1, 1)]

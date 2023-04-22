@@ -3,10 +3,10 @@ namespace Tests
 {
     public class CircleTests
     {
-        // Accuracy
+        // Погрешность
         double accuracy = 0.01;
 
-        // Positive Circle Tests
+        // Положительные тесты
         [TestCase(4, 50.26)]
         [TestCase(10, 314.15)]
         [TestCase(5, 78.54)]
@@ -21,7 +21,7 @@ namespace Tests
             Assert.AreEqual(figure.FigureType, "Circle");
         }
 
-        // Negative Circle Testss
+        // Отрицательные тесты
         [TestCase(0)]
         [TestCase(-1)]
         [Test]

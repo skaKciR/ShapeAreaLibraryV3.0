@@ -11,7 +11,7 @@ namespace Tests
     {
         public double accuracy = 0.001;
 
-        // Checking creating Circle with Factory and standart Circle
+        // Проверка создания Круга через фабрику
         [TestCase(5)]
         [TestCase(2)]
         [TestCase(0.2)]
@@ -22,7 +22,7 @@ namespace Tests
             Assert.AreEqual(circle1.Area, circle2.Area, accuracy);
         }
 
-        // Checking creating Triangle with Factory and standart Triangle
+        //  Проверка создания Треугольника через фабрику
         [TestCase(3, 4, 5)]
         [TestCase(19, 12, 12)]
         [TestCase(5, 5, 6)]
@@ -34,7 +34,7 @@ namespace Tests
             Assert.AreEqual(triangle1.Area, triangle2.Area, accuracy);
         }
 
-        // Checking creating Rectangle with Factory and standart Rectangle
+        //  Проверка создания Прямоугольника через фабрику
         [TestCase(5, 5)]
         [TestCase(4, 6)]
         [TestCase(25, 50)]

@@ -19,6 +19,7 @@ namespace ShapeAreaLibraryV3._0
         /// <exception cref="ArgumentException">Нет фигуры с таким количеством параметров</exception>
         public static IShape CreateShape(params double[] parameters)
         {
+            // Не проверяем входные параметры на > 0, т.к эта проверка реализована в классах фигур
             switch (parameters.Length)
             {
                 case 1:
@@ -33,9 +34,9 @@ namespace ShapeAreaLibraryV3._0
                     {
                         return new Triangle(parameters[0], parameters[1], parameters[2]);
                     }
-                    // New types here
+                    // Новые фигуры здесь
                     
-                    // If nothing matched
+                    // Если такой фигуры нет выбросить исключение
                 default:
                     {
                         throw new ArgumentException($"К сожалению, нет возможности создать фигуры с {parameters.Length} параметрами");

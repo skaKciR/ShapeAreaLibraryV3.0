@@ -1,6 +1,4 @@
-﻿
-using System;
-
+﻿using System;
 namespace ShapeAreaLibraryV3._0
 {
     /// <summary>

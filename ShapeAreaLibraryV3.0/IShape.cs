@@ -5,6 +5,6 @@
         string FigureType { get; }
         double Area { get; }
         void CalculateArea();
-        // More methods and properties here
+        // Дополнительные методы и свойства
     }
 }

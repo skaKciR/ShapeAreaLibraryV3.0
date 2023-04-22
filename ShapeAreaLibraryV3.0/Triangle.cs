@@ -64,7 +64,7 @@ namespace ShapeAreaLibraryV3._0
         /// <param name="side3">Сторона 3</param>
         public Triangle(double side1, double side2, double side3)
         {
-            Sides = new double[] { side1, side2, side3 };
+            Sides = new double[] { side1, side2, side3 }; 
             IsRight = IsRightTriangle();
         }
 
@@ -77,15 +77,15 @@ namespace ShapeAreaLibraryV3._0
         /// <returns>Возвращает true, если треугольник существует и false в противоположном случае</returns>
         private bool IsTriangle(double a, double b, double c)
         {
-            return a + b > c + Accuracy && a + c > b + Accuracy && b + c > a + Accuracy;
+            return a + b > c + Accuracy && a + c > b + Accuracy && b + c > a + Accuracy; // Проверка условия, что длина каждой стороны меньше суммы длин двух других сторон
         }
        /// <summary>
        /// Вычисление площади фигуры
        /// </summary> 
         public void CalculateArea()
         {
-            double p = (_sides[0] + _sides[1] + _sides[2]) / 2;
-            _area = Math.Sqrt(p * (p - _sides[0]) * (p - _sides[1]) * (p - _sides[2]));
+            double p = (_sides[0] + _sides[1] + _sides[2]) / 2; // Выичсление полупериметра
+            _area = Math.Sqrt(p * (p - _sides[0]) * (p - _sides[1]) * (p - _sides[2])); // Вычисление площади по формуле Герона
         }
 
         /// <summary>
@@ -94,8 +94,8 @@ namespace ShapeAreaLibraryV3._0
         /// <returns>Возвращает значение true, если треугольник прямоугольный и false в противоположном случае</returns>
         public bool IsRightTriangle()
         {
-            Array.Sort(_sides);
-            return Math.Abs(_sides[2] * _sides[2] - (_sides[0] * _sides[0] + _sides[1] * _sides[1])) < Accuracy;
+            Array.Sort(_sides); // Сортировка сторон
+            return Math.Abs(_sides[2] * _sides[2] - (_sides[0] * _sides[0] + _sides[1] * _sides[1])) < Accuracy; // Проверка по теореме Пифагора, является ли треугольник правильным
         }
     }
 }
