@@ -24,5 +24,19 @@ namespace Tests
             Assert.AreEqual(figure.Area, exp, accuracy);
             Assert.AreEqual(figure.FigureType, "Rectangle");
         }
+
+        // Отрицательные
+        [TestCase(-5, 5)]
+        [TestCase(5, -5)]
+        [TestCase(0, 5)]
+        [TestCase(5, 0)]
+        [TestCase(0, 0)]
+        [TestCase(-5, -5)]
+        [TestCase(-5, -5)]
+        [Test]
+        public void RectangleNegativeTests(double a, double b)
+        {
+            Assert.Throws<ArgumentException>(() => new Rectangle(a, b));
+        }
     }
 }

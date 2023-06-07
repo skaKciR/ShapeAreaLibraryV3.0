@@ -7,7 +7,7 @@ namespace ShapeAreaLibraryV3._0
     /// </summary>
     public class Circle : IShape
     {
-        private double _radius; // радиуса
+        private double _radius; // радиус
         private double _area; // площади
 
         public string FigureType { get; } = "Circle"; // тип фигуры

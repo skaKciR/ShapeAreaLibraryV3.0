@@ -46,5 +46,14 @@ namespace Tests
             Assert.AreEqual(rectangle1.Area, rectangle2.Area, accuracy);
         }
 
+        [TestCase(-5, 5)]
+        [TestCase(4, -6)]
+        [TestCase(0, 50)]
+        [Test]
+        public void Factory(double a, double b)
+        {
+            Assert.Throws<ArgumentException>(() => new Rectangle(a, b));
+        }
+
     }
 }

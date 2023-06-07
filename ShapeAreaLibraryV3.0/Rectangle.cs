@@ -6,7 +6,8 @@ namespace ShapeAreaLibraryV3._0
     /// </summary>
     public class Rectangle : IShape
     {
-        private double[] _sides; // стороны
+        private double _sideA;
+        private double _sideB;
         private double _area; // площадь
 
         public string FigureType { get; } = "Rectangle"; // тип фигуры
@@ -16,32 +17,40 @@ namespace ShapeAreaLibraryV3._0
         {
             get
             {
-                if (_area == 0)
-                {
-                    CalculateArea();
-                }
                 return _area;
             }
         }
 
         // Стороны прямуогольника
-        public double[] Sides
+        public double SideA
         {
-            get { return _sides; }
-            private set
+            get { return _sideA; }
+            set
             {
-                if (value.Any(side => side <= 0))
+                if (value <= 0)
                 {
-                    throw new ArgumentException("Длины сторон прямоугольника должны быть числом положительным");
+                    throw new ArgumentException("Длина стороны фигуры должна быть положительным числом");
                 }
+                // Присваиваем новое значение и обновляем поля, т.к длина стороны изменилась
+                _sideA = value;
+                CalculateArea();
 
-                if (value == null || value.Length != 2)
+            }
+        }
+
+        public double SideB
+        {
+            get { return _sideB; }
+            set
+            {
+                if (value <= 0)
                 {
-                    throw new ArgumentException("Некорректные длины сторон прямоугольника");
+                    throw new ArgumentException("Длины сторон фигуры должны быть положительным числом");
                 }
+                // Присваиваем новое значение и обновляем поля, т.к длина стороны изменилась
+                _sideB = value;
+                CalculateArea();
 
-                _sides = value;
-                _area = 0;
             }
         }
 
@@ -52,7 +61,13 @@ namespace ShapeAreaLibraryV3._0
         /// <param name="side2">Длина второй стороны</param>
         public Rectangle(double side1, double side2)
         {
-            Sides = new double[] { side1, side2 };
+            if (side1 <= 0 || side2 <= 0)
+            {
+                throw new ArgumentException("Длины сторон фигуры должны быть положительным числом");
+            }
+            _sideA = side1;
+            _sideB = side2;
+            CalculateArea();
         }
 
         /// <summary>
@@ -60,7 +75,7 @@ namespace ShapeAreaLibraryV3._0
         /// </summary>
         public void CalculateArea()
         {
-            _area = _sides[0] * _sides[1];
+            _area = _sideA*_sideB;
         }
     }
 }
